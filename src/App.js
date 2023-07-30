@@ -1,7 +1,7 @@
-import '../src/css/App.css';
+import '../src/css/app.css';
 import AddData from './components/AddData';
 import Balanco from './components/Balanco';
-import Grafico from './components/Grafico';
+import Tabela from './components/Tabela';
 import Header from './components/Header';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <div className='container'>
         <Balanco />
         <AddData />
-        <Grafico />
+        <Tabela />
       </div>
     </div>
   );

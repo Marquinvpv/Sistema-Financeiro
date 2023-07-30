@@ -1,0 +1,28 @@
+.tabela-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-sizing: border-box;
+}
+
+.tabela-colums {
+    width: 95%;
+    box-sizing: border-box;
+}
+
+.tabela-colums ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #F0EEEE;
+    font-weight: 700;
+}
+
+.tabela-colums li {
+    list-style: none;
+}

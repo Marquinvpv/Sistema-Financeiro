@@ -1,9 +1,45 @@
 .add-container {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     background-color: #fff;
     border-radius: 10px;
     padding: 2rem;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-sizing: border-box;
+}
+
+.add-content {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+    color: #95969C;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+.add-children {
+    display: flex;
+    gap: 0.2rem;
+    justify-content: right;
+}
+
+.button {
+    width: 5rem;
+    background-color: #9ec3a2;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #9ea3c2;
+    transition: 1s;
+}
+
+input, select {
+    padding: 5px;
+    border: 1px solid #95969C;
+    border-radius: 5px;
 }
