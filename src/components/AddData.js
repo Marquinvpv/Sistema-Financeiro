@@ -62,21 +62,21 @@ const AddData = () => {
       </div>
       <div className="add-content">
         <div className="add-children">
-          <label for="entrada">Entrada</label>
+          <label htmlFor="entrada">Entrada</label>
           <input
             type="checkbox"
             name="entrada"
             checked={entrada}
-            onChange={(e) => handleChangeOperation()}
+            onChange={handleChangeOperation()}
           />
         </div>
         <div className="add-children">
-          <label for="saida">Saida</label>
+          <label htmlFor="saida">Saida</label>
           <input
             type="checkbox"
             name="saida"
             checked={saida}
-            onChange={(e) => handleChangeOperation()}
+            onChange={handleChangeOperation()}
           />
         </div>
       </div>

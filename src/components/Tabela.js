@@ -1,20 +1,25 @@
-import React from 'react'
+import React from "react";
+import Dados from "./Dados";
+
 import '../css/tabela.css'
 
 const Tabela = () => {
   return (
-    <div className='tabela-container'>
-      <div className='tabela-colums'>
-        <ul>
-          <li>Data</li>
-          <li>Categoria</li>
-          <li>Descrição</li>
-          <li>Valor</li>
-          <li>Operção</li>
-        </ul>
-      </div>
-    </div>
-  )
-}
+    <table className="tabela-container">
+      <thead className="tabela-title">
+        <tr>
+          <th>Data</th>
+          <th>Categoria</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th>Operação</th>
+        </tr>
+      </thead>
+      <tbody className="tabela-colums">
+        <Dados />
+      </tbody>
+    </table>
+  );
+};
 
-export default Tabela
+export default Tabela;
