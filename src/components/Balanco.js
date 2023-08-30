@@ -1,27 +1,36 @@
-import React, { useState } from 'react'
+import { useDataContext } from '../provider/dataProvider';
+import { useState } from 'react';
 import '../css/balanco.css'
 
 const Balanco = () => {
-  const[receita,setReceita] = useState(1)
-  const[despesa,setDespesa] = useState(2)
-  const[balanco,setBalanco] = useState(3)
- 
+  const {
+    value,
+    setValue,
+    operation,
+    setOperation,
+    entrada,
+    setEntrada,
+    saida,
+    setSaida,
+    userBalance,
+    setUserBalance
+  } = useDataContext();
 
   return (
-    <div className='balanco-container'>
+    <form className='balanco-container'>
       <div className='balanco-content'>
         <span>Receita</span>
-        {receita}
+        {userBalance.receita}
       </div>
       <div className='balanco-content'>
         <span>Despesa</span>
-        {despesa}
+        {userBalance.despesa}
       </div>
       <div className='balanco-content'>
         <span>Balanço</span>
-        {balanco}
+        {userBalance.balanco}
       </div>
-    </div>
+    </form>
   )
 }
 

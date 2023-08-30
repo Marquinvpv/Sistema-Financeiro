@@ -1,25 +1,60 @@
 import React, { useState } from "react";
 import "../css/addData.css";
+import Button from "./Button";
+import { useDataContext } from "../provider/dataProvider";
 
 const AddData = () => {
-  const [data, setData] = useState();
-  const [category, setCategory] = useState();
-  const [description, setDescription] = useState();
-  const [value, setValue] = useState();
-  const [operation, setOperation] = useState('entrada');
-  const [entrada, setEntrada] = useState(true);
-  const [saida, setSaida] = useState(false);
+  const {
+    data,
+    setData,
+    category,
+    setCategory,
+    description,
+    setDescription,
+    value,
+    setValue,
+    operation,
+    setOperation,
+    entrada,
+    setEntrada,
+    saida,
+    setSaida,
+    userBalance,
+    setUserBalance,
+    arrayData,
+    setArrayData,
+    userFinance, 
+    setUserFinance
+  } = useDataContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data, category, description, value, operation);
+    const newDataObject = {
+      data: data,
+      category: category,
+      description: description,
+      value: value,
+      operation: operation,
+    };
+
+    setArrayData((prevArrayData) => [...prevArrayData, newDataObject]);
+    switch (operation) {
+      case "entrada": {
+        setUserBalance({ receita: userBalance.receita + Number(value), despesa: userBalance.despesa, balanco: userBalance.balanco + Number(value) });
+        break;
+      }
+      case "saida": {
+        setUserBalance({ receita: userBalance.receita, despesa: userBalance.despesa + Number(value), balanco: userBalance.balanco - Number(value) });
+        break;
+      }
+    }
   };
 
   const handleChangeOperation = () => {
-    setEntrada(!entrada); 
+    setEntrada(!entrada);
     setSaida(!saida);
     operation === "entrada" ? setOperation("saida") : setOperation("entrada");
-    }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="add-container">
@@ -67,7 +102,7 @@ const AddData = () => {
             type="checkbox"
             name="entrada"
             checked={entrada}
-            onChange={handleChangeOperation()}
+            onChange={() => handleChangeOperation()}
           />
         </div>
         <div className="add-children">
@@ -76,11 +111,11 @@ const AddData = () => {
             type="checkbox"
             name="saida"
             checked={saida}
-            onChange={handleChangeOperation()}
+            onChange={() => handleChangeOperation()}
           />
         </div>
       </div>
-      <button className="button">Aplicar</button>
+      <Button />
     </form>
   );
 };
